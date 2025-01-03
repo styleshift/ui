@@ -30,7 +30,7 @@ const button = tv({
   },
   defaultVariants: {
     surface: "default",
-    color: "default",
+    color: "neutral",
     size: "default",
     fullWidth: false,
     disabled: false,
@@ -100,9 +100,11 @@ const button = tv({
       fuchsia: [],
       pink: [],
       rose: [],
-      positive: [],
-      negative: [],
-      warning: [],
+      slate: [],
+      gray: [],
+      neutral: [],
+      zinc: [],
+      stone: [],
     },
     size: {
       xs: {
@@ -814,122 +816,202 @@ const button = tv({
     },
     {
       surface: "default",
-      color: "positive",
+      color: "slate",
       class: {
         root: [
-          "bg-green-600",
+          "bg-slate-600",
           "text-white",
-          "hover:bg-green-600/90",
-          "focus:ring-green-600",
+          "hover:bg-slate-600/90",
+          "focus:ring-slate-600",
         ],
       },
     },
     {
       surface: "outline",
-      color: "positive",
+      color: "slate",
       class: {
-        root: ["border-green-500", "text-green-600", "hover:bg-green-50"],
+        root: ["border-slate-500", "text-slate-600", "hover:bg-slate-50"],
       },
     },
     {
       surface: "secondary",
-      color: "positive",
+      color: "slate",
       class: {
-        root: ["bg-green-100", "text-green-700", "hover:bg-green-100/80"],
+        root: ["bg-slate-100", "text-slate-700", "hover:bg-slate-100/80"],
       },
     },
     {
       surface: "ghost",
-      color: "positive",
+      color: "slate",
       class: {
-        root: ["text-green-600", "hover:bg-green-50"],
+        root: ["text-slate-600", "hover:bg-slate-50"],
       },
     },
     {
       surface: "link",
-      color: "positive",
+      color: "slate",
       class: {
-        root: ["text-green-600", "hover:text-green-700"],
+        root: ["text-slate-600", "hover:text-slate-700"],
       },
     },
     {
       surface: "default",
-      color: "negative",
+      color: "gray",
       class: {
         root: [
-          "bg-red-600",
+          "bg-gray-600",
           "text-white",
-          "hover:bg-red-600/90",
-          "focus:ring-red-600",
+          "hover:bg-gray-600/90",
+          "focus:ring-gray-600",
         ],
       },
     },
     {
       surface: "outline",
-      color: "negative",
+      color: "gray",
       class: {
-        root: ["border-red-500", "text-red-600", "hover:bg-red-50"],
+        root: ["border-gray-500", "text-gray-600", "hover:bg-gray-50"],
       },
     },
     {
       surface: "secondary",
-      color: "negative",
+      color: "gray",
       class: {
-        root: ["bg-red-100", "text-red-700", "hover:bg-red-100/80"],
+        root: ["bg-gray-100", "text-gray-700", "hover:bg-gray-100/80"],
       },
     },
     {
       surface: "ghost",
-      color: "negative",
+      color: "gray",
       class: {
-        root: ["text-red-600", "hover:bg-red-50"],
+        root: ["text-gray-600", "hover:bg-gray-50"],
       },
     },
     {
       surface: "link",
-      color: "negative",
+      color: "gray",
       class: {
-        root: ["text-red-600", "hover:text-red-700"],
+        root: ["text-gray-600", "hover:text-gray-700"],
       },
     },
     {
       surface: "default",
-      color: "warning",
+      color: "neutral",
       class: {
         root: [
-          "bg-amber-600",
+          "bg-neutral-600",
           "text-white",
-          "hover:bg-amber-600/90",
-          "focus:ring-amber-600",
+          "hover:bg-neutral-600/90",
+          "focus:ring-neutral-600",
         ],
       },
     },
     {
       surface: "outline",
-      color: "warning",
+      color: "neutral",
       class: {
-        root: ["border-amber-500", "text-amber-600", "hover:bg-amber-50"],
+        root: ["border-neutral-500", "text-neutral-600", "hover:bg-neutral-50"],
       },
     },
     {
       surface: "secondary",
-      color: "warning",
+      color: "neutral",
       class: {
-        root: ["bg-amber-100", "text-amber-700", "hover:bg-amber-100/80"],
+        root: ["bg-neutral-100", "text-neutral-700", "hover:bg-neutral-100/80"],
       },
     },
     {
       surface: "ghost",
-      color: "warning",
+      color: "neutral",
       class: {
-        root: ["text-amber-600", "hover:bg-amber-50"],
+        root: ["text-neutral-600", "hover:bg-neutral-50"],
       },
     },
     {
       surface: "link",
-      color: "warning",
+      color: "neutral",
       class: {
-        root: ["text-amber-600", "hover:text-amber-700"],
+        root: ["text-neutral-600", "hover:text-neutral-700"],
+      },
+    },
+    {
+      surface: "default",
+      color: "zinc",
+      class: {
+        root: [
+          "bg-zinc-600",
+          "text-white",
+          "hover:bg-zinc-600/90",
+          "focus:ring-zinc-600",
+        ],
+      },
+    },
+    {
+      surface: "outline",
+      color: "zinc",
+      class: {
+        root: ["border-zinc-500", "text-zinc-600", "hover:bg-zinc-50"],
+      },
+    },
+    {
+      surface: "secondary",
+      color: "zinc",
+      class: {
+        root: ["bg-zinc-100", "text-zinc-700", "hover:bg-zinc-100/80"],
+      },
+    },
+    {
+      surface: "ghost",
+      color: "zinc",
+      class: {
+        root: ["text-zinc-600", "hover:bg-zinc-50"],
+      },
+    },
+    {
+      surface: "link",
+      color: "zinc",
+      class: {
+        root: ["text-zinc-600", "hover:text-zinc-700"],
+      },
+    },
+    {
+      surface: "default",
+      color: "stone",
+      class: {
+        root: [
+          "bg-stone-600",
+          "text-white",
+          "hover:bg-stone-600/90",
+          "focus:ring-stone-600",
+        ],
+      },
+    },
+    {
+      surface: "outline",
+      color: "stone",
+      class: {
+        root: ["border-stone-500", "text-stone-600", "hover:bg-stone-50"],
+      },
+    },
+    {
+      surface: "secondary",
+      color: "stone",
+      class: {
+        root: ["bg-stone-100", "text-stone-700", "hover:bg-stone-100/80"],
+      },
+    },
+    {
+      surface: "ghost",
+      color: "stone",
+      class: {
+        root: ["text-stone-600", "hover:bg-stone-50"],
+      },
+    },
+    {
+      surface: "link",
+      color: "stone",
+      class: {
+        root: ["text-stone-600", "hover:text-stone-700"],
       },
     },
   ],

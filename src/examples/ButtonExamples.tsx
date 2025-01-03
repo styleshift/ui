@@ -1,19 +1,93 @@
 "use client";
 import { useState } from "react";
 import button from "../../components/button";
-import {
-  Check as CheckIcon,
-  Plus as PlusIcon,
-  Code as CodeIcon,
-} from "lucide-react";
+import { Check as CheckIcon, Plus as PlusIcon, Code } from "lucide-react";
+
+interface CodeSectionProps {
+  title: string;
+  description: string;
+  code: string;
+  children: React.ReactNode;
+}
 
 const ButtonExamples = () => {
   const { root, start, end } = button();
-  const [showSurfaceCode, setShowSurfaceCode] = useState(false);
-  const [showColorCode, setShowColorCode] = useState(false);
-  const [showSizeCode, setShowSizeCode] = useState(false);
-  const [showDisabledCode, setShowDisabledCode] = useState(false);
-  const [showSlotsCode, setShowSlotsCode] = useState(false);
+
+  // Consolidate state into a single object
+  const [showCode, setShowCode] = useState<Record<string, boolean>>({});
+
+  // Reusable code section component
+  function CodeSection({
+    title,
+    description,
+    code,
+    children,
+  }: CodeSectionProps) {
+    return (
+      <section className="scroll-m-20 space-y-6">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+          <p className="text-zinc-600 text-base leading-relaxed">
+            {description}
+          </p>
+          <div className="flex justify-start">
+            <button
+              onClick={() =>
+                setShowCode((prev) => ({ ...prev, [title]: !prev[title] }))
+              }
+              className={root({ surface: "ghost", size: "sm" })}
+            >
+              <div className={start()}>
+                <Code className="h-4 w-4 mr-2" />
+              </div>
+              {showCode[title] ? "Hide code" : "View code"}
+            </button>
+          </div>
+          {showCode[title] && (
+            <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
+              <code className="text-xs">{code}</code>
+            </pre>
+          )}
+          <div className="p-8 bg-white/90 backdrop-blur-sm border rounded-lg">
+            {children}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const surfaces = [
+    "default",
+    "secondary",
+    "outline",
+    "ghost",
+    "link",
+  ] as const;
+  const sizes = ["xs", "sm", "default", "md", "lg", "xl"] as const;
+  const colors = [
+    "neutral",
+    "slate",
+    "gray",
+    "zinc",
+    "stone",
+    "red",
+    "orange",
+    "amber",
+    "yellow",
+    "lime",
+    "green",
+    "emerald",
+    "teal",
+    "cyan",
+    "sky",
+    "blue",
+    "indigo",
+    "violet",
+    "purple",
+    "fuchsia",
+    "pink",
+    "rose",
+  ] as const;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-zinc-100 text-zinc-800 pb-24 relative">
@@ -38,167 +112,49 @@ const { root } = button()
           </pre>
 
           <div className="space-y-12 sm:space-y-16">
-            <section className="scroll-m-20 space-y-6">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  Surface
-                </h2>
-                <p className="text-zinc-600 text-base leading-relaxed">
-                  A button can have multiple surfaces which can be used to
-                  indicate the importance of the button.
-                </p>
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => setShowSurfaceCode(!showSurfaceCode)}
-                    className={root({ surface: "ghost", size: "sm" })}
-                  >
-                    <div className={start()}>
-                      <CodeIcon className="h-4 w-4 mr-2" />
-                    </div>
-                    {showSurfaceCode ? "Hide code" : "View code"}
-                  </button>
-                </div>
-                {showSurfaceCode && (
-                  <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
-                    <code className="text-xs">{`import { button } from "@/components/ui/button"
-
+            <CodeSection
+              title="Surface"
+              description="A button can have multiple surfaces which can be used to indicate the importance of the button."
+              code={`import { button } from "@/components/ui/button"
 const { root } = button()
-<button className={root()}>
-  Default
-</button>
-<button className={root({ surface: "secondary" })}>
-  Secondary
-</button>
-<button className={root({ surface: "outline" })}>
-  Outline
-</button>
-<button className={root({ surface: "ghost" })}>
-  Ghost
-</button>
-<button className={root({ surface: "link" })}>
-  Link
-</button>`}</code>
-                  </pre>
-                )}
-                <div className="p-8 bg-white/90 backdrop-blur-sm border rounded-lg">
-                  <div className="flex flex-wrap gap-4">
-                    <button title="Default" className={root()}>
-                      Default
-                    </button>
-                    <button
-                      title="Secondary"
-                      className={root({ surface: "secondary" })}
-                    >
-                      Secondary
-                    </button>
-                    <button
-                      title="Outline"
-                      className={root({ surface: "outline" })}
-                    >
-                      Outline
-                    </button>
-                    <button
-                      title="Ghost"
-                      className={root({ surface: "ghost" })}
-                    >
-                      Ghost
-                    </button>
-                    <button title="Link" className={root({ surface: "link" })}>
-                      Link
-                    </button>
-                  </div>
-                </div>
+${surfaces.map((s) => `<button className={root({ surface: "${s}" })}>${s}</button>`).join("\n")}`}
+            >
+              <div className="flex flex-wrap gap-4">
+                {surfaces.map((surface) => (
+                  <button key={surface} className={root({ surface })}>
+                    {surface}
+                  </button>
+                ))}
               </div>
-            </section>
+            </CodeSection>
 
-            <section className="scroll-m-20 space-y-6">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-2xl font-semibold tracking-tight">Size</h2>
-                <p className="text-zinc-600 text-base leading-relaxed">
-                  Buttons come in different sizes to accommodate various use
-                  cases.
-                </p>
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => setShowSizeCode(!showSizeCode)}
-                    className={root({ surface: "ghost", size: "sm" })}
-                  >
-                    <div className={start()}>
-                      <CodeIcon className="h-4 w-4 mr-2" />
-                    </div>
-                    {showSizeCode ? "Hide code" : "View code"}
+            <CodeSection
+              title="Size"
+              description="Buttons come in different sizes to accommodate various use cases."
+              code={`import { button } from "@/components/ui/button"
+const { root } = button()
+${sizes.map((s) => `<button className={root({ size: "${s}" })}>${s}</button>`).join("\n")}`}
+            >
+              <div className="flex flex-wrap items-center gap-4">
+                {sizes.map((size) => (
+                  <button key={size} className={root({ size })}>
+                    {size.toUpperCase()}
                   </button>
-                </div>
-                {showSizeCode && (
-                  <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
-                    <code className="text-xs">{`import { button } from "@/components/ui/button"
-
-const { root } = button();
-
-<button className={root({ size: "xs" })}>xs</button>
-<button className={root({ size: "sm" })}>sm</button>
-<button className={root({ size: "default" })}>Default</button>
-<button className={root({ size: "md" })}>md</button>
-<button className={root({ size: "lg" })}>lg</button>
-<button className={root({ size: "xl" })}>xl</button>`}</code>
-                  </pre>
-                )}
+                ))}
               </div>
-              <div className="p-8 bg-white/90 backdrop-blur-sm border rounded-lg">
-                <div className="flex flex-wrap items-center gap-4">
-                  <button title="Default" className={root({ size: "default" })}>
-                    Default
-                  </button>
-                  <button title="Extra Small" className={root({ size: "xs" })}>
-                    XS
-                  </button>
-                  <button title="Small" className={root({ size: "sm" })}>
-                    SM
-                  </button>
-                  <button title="Medium" className={root({ size: "md" })}>
-                    MD
-                  </button>
-                  <button title="Large" className={root({ size: "lg" })}>
-                    LG
-                  </button>
-                  <button title="Extra Large" className={root({ size: "xl" })}>
-                    XL
-                  </button>
-                </div>
-              </div>
-            </section>
+            </CodeSection>
 
-            <section className="scroll-m-20 space-y-6">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  Disabled
-                </h2>
-                <p className="text-zinc-600 text-base leading-relaxed">
-                  Buttons can be disabled to indicate they are not interactive.
-                </p>
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => setShowDisabledCode(!showDisabledCode)}
-                    className={root({ surface: "ghost", size: "sm" })}
-                  >
-                    <div className={start()}>
-                      <CodeIcon className="h-4 w-4 mr-2" />
-                    </div>
-                    {showDisabledCode ? "Hide code" : "View code"}
-                  </button>
-                </div>
-                {showDisabledCode && (
-                  <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
-                    <code className="text-xs">{`import { button } from "@/components/ui/button"
+            <CodeSection
+              title="Disabled"
+              description="Buttons can be disabled to indicate they are not interactive."
+              code={`import { button } from "@/components/ui/button"
 
 const { root } = button()
 
 <button className={root()} disabled>Disabled</button>
 <button className={root({ surface: "outline" })} disabled>Disabled</button>
-// etc...`}</code>
-                  </pre>
-                )}
-              </div>
+// etc...`}
+            >
               <div className="p-8 bg-white/90 backdrop-blur-sm border rounded-lg flex flex-wrap gap-4">
                 <button title="Disabled Default" className={root()} disabled>
                   Disabled
@@ -232,29 +188,12 @@ const { root } = button()
                   Disabled
                 </button>
               </div>
-            </section>
+            </CodeSection>
 
-            <section className="scroll-m-20 space-y-6">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-2xl font-semibold tracking-tight">Slots</h2>
-                <p className="text-zinc-600 text-base leading-relaxed">
-                  Buttons support start and end slots for adding icons or other
-                  content.
-                </p>
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => setShowSlotsCode(!showSlotsCode)}
-                    className={root({ surface: "ghost", size: "sm" })}
-                  >
-                    <div className={start()}>
-                      <CodeIcon className="h-4 w-4 mr-2" />
-                    </div>
-                    {showSlotsCode ? "Hide code" : "View code"}
-                  </button>
-                </div>
-                {showSlotsCode && (
-                  <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
-                    <code className="text-xs">{`import { button } from "@/components/ui/button"
+            <CodeSection
+              title="Slots"
+              description="Buttons support start and end slots for adding icons or other content."
+              code={`import { button } from "@/components/ui/button"
                                         import { PlusIcon, CheckIcon, AlertTriangleIcon, XIcon } from "lucide-react"
 
                                         const { root, start, end } = button()
@@ -273,10 +212,8 @@ const { root } = button()
                                           <div className={end()}>
                                             <PlusIcon className="ml-2 h-4 w-4" />
                                           </div>
-                                        </button>`}</code>
-                  </pre>
-                )}
-              </div>
+                                        </button>`}
+            >
               <div className="space-y-4">
                 <div className="bg-white/90 backdrop-blur-sm border rounded-lg p-8">
                   <div className="flex flex-wrap gap-4">
@@ -304,117 +241,36 @@ const { root } = button()
                   </div>
                 </div>
               </div>
-            </section>
+            </CodeSection>
 
-            <section className="scroll-m-20 space-y-6">
-              <div className="flex flex-col gap-2">
-                <h2 className="text-2xl font-semibold tracking-tight">Color</h2>
-                <p className="text-zinc-600 text-base leading-relaxed">
-                  Buttons can be styled with different colors using semantic or
-                  Tailwind color values.
-                </p>
-                <div className="flex justify-start">
-                  <button
-                    onClick={() => setShowColorCode(!showColorCode)}
-                    className={root({ surface: "ghost", size: "sm" })}
-                  >
-                    <div className={start()}>
-                      <CodeIcon className="h-4 w-4 mr-2" />
-                    </div>
-                    {showColorCode ? "Hide code" : "View code"}
-                  </button>
-                </div>
-                {showColorCode && (
-                  <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
-                    <code className="text-xs">{`import { button } from "@/components/ui/button"
+            <CodeSection
+              title="Color"
+              description="Buttons can be styled with different colors using Tailwind color values."
+              code={`import { button } from "@/components/ui/button"
 
 const { root } = button()
-
-// Semantic Colors
-<button className={root({ surface: "default", color: "positive" })}>Success</button>
-<button className={root({ surface: "default", color: "warning" })}>Warning</button>
-<button className={root({ surface: "default", color: "negative" })}>Error</button>
 
 // Tailwind Colors
 <button className={root({ surface: "default", color: "red" })}>Red</button>
 <button className={root({ surface: "default", color: "blue" })}>Blue</button>
 <button className={root({ surface: "default", color: "green" })}>Green</button>
-<button className={root({ surface: "default", color: "purple" })}>Purple</button>`}</code>
-                  </pre>
-                )}
-              </div>
+<button className={root({ surface: "default", color: "purple" })}>Purple</button>`}
+            >
               <div className="space-y-4">
-                <h3 className="text-lg font-medium">Semantic</h3>
-                <div className="bg-white/90 backdrop-blur-sm p-8 border rounded-lg">
-                  {(
-                    [
-                      "default",
-                      "outline",
-                      "secondary",
-                      "ghost",
-                      "link",
-                    ] as const
-                  ).map((surface) => (
-                    <div className="p-2 flex flex-wrap gap-4" key={surface}>
-                      <div className="flex flex-wrap gap-4">
-                        <button title="Default" className={root({ surface })}>
-                          Default
-                        </button>
-                        <button
-                          title="Positive"
-                          className={root({ surface, color: "positive" })}
-                        >
-                          Positive
-                        </button>
-                        <button
-                          title="Warning"
-                          className={root({ surface, color: "warning" })}
-                        >
-                          Warning
-                        </button>
-                        <button
-                          title="Negative"
-                          className={root({ surface, color: "negative" })}
-                        >
-                          Negative
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Tailwind</h3>
                 <div className="bg-white/90 backdrop-blur-sm flex flex-wrap gap-4 p-8 border rounded-lg">
-                  {(
-                    [
-                      "red",
-                      "orange",
-                      "amber",
-                      "yellow",
-                      "lime",
-                      "green",
-                      "emerald",
-                      "teal",
-                      "cyan",
-                      "sky",
-                      "blue",
-                      "indigo",
-                      "violet",
-                      "purple",
-                      "fuchsia",
-                      "pink",
-                      "rose",
-                    ] as const
-                  ).map((color) => (
-                    <button title="Red" className={root({ color })}>
+                  {colors.map((color) => (
+                    <button
+                      key={color}
+                      title={color}
+                      className={root({ color })}
+                    >
                       {String(color).charAt(0).toUpperCase() +
                         String(color).slice(1)}
                     </button>
                   ))}
                 </div>
               </div>
-            </section>
+            </CodeSection>
           </div>
         </main>
       </div>
