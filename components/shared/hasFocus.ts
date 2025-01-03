@@ -1,7 +1,7 @@
 export default [
-  "focus:outline-none",
   "focus:ring-2",
-  "focus:ring-offset-[1px]",
-  "focus:ring-offset-opacity-50",
+  "focus:ring-offset-[2px]",
   "focus:border-transparent",
+  "focus:outline-none",
+  "focus:ring-neutral-400",
 ];

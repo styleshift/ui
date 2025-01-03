@@ -8,7 +8,7 @@ const button = tv({
     root: [
       ...reset,
       ...hasTransitions,
-      ...hasFocus,
+      hasFocus,
       ...hasDisabled,
       "min-w-fit",
       "overflow-hidden",
@@ -34,23 +34,18 @@ const button = tv({
     color: "default",
     size: "default",
     fullWidth: false,
+    disabled: false,
+    focus: false,
   },
   variants: {
     surface: {
       default: {
-        root: [
-          "bg-neutral-800",
-          "text-neutral-50",
-          "shadow",
-          "hover:bg-neutral-800/90",
-          "border-transparent",
-        ],
+        root: ["bg-neutral-800", "text-neutral-50", "hover:bg-neutral-800/90"],
       },
       outline: {
         root: [
           "border-neutral-400",
           "bg-transparent",
-          "shadow-sm",
           "text-neutral-600",
           "hover:bg-neutral-100",
         ],
@@ -59,7 +54,6 @@ const button = tv({
         root: [
           "bg-neutral-200",
           "text-neutral-600",
-          "shadow-sm",
           "hover:bg-neutral-200/90",
           "border-transparent",
         ],
