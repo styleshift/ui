@@ -1,14 +1,12 @@
 import { tv } from "tailwind-variants";
-import { reset, hasTransitions } from "./shared";
-import hasFocus from "./shared/hasFocus.ts";
-import hasDisabled from "./shared/hasDisabled.ts";
+import { reset, hasTransitions, hasFocus, hasDisabled } from "./shared";
 
 const button = tv({
   slots: {
     root: [
       ...reset,
       ...hasTransitions,
-      hasFocus,
+      ...hasFocus,
       ...hasDisabled,
       "min-w-fit",
       "overflow-hidden",
