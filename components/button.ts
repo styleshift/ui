@@ -21,6 +21,7 @@ const button = tv({
       "active:opacity-90",
       "tap-highlight-transparent",
       "border",
+      "border-transparent",
       "bg-transparent",
       "group",
     ],
@@ -38,7 +39,14 @@ const button = tv({
   variants: {
     surface: {
       default: {
-        root: ["bg-neutral-800", "text-neutral-50", "hover:bg-neutral-800/90"],
+        root: [
+          "bg-neutral-800",
+          "text-neutral-50",
+          "hover:bg-neutral-800/90",
+          "focus:ring-2",
+          "focus:ring-neutral-800",
+          "focus:ring-offset-2",
+        ],
       },
       outline: {
         root: [
@@ -161,7 +169,7 @@ const button = tv({
       surface: "link",
       color: "red",
       class: {
-        root: "text-red-600",
+        root: ["text-red-600", "hover:text-red-700"],
       },
     },
     {
@@ -201,7 +209,7 @@ const button = tv({
       surface: "link",
       color: "orange",
       class: {
-        root: "text-orange-600",
+        root: ["text-orange-600", "hover:text-orange-700"],
       },
     },
     {
@@ -241,7 +249,7 @@ const button = tv({
       surface: "link",
       color: "amber",
       class: {
-        root: "text-amber-600",
+        root: ["text-amber-600", "hover:text-amber-700"],
       },
     },
     {
@@ -281,7 +289,7 @@ const button = tv({
       surface: "link",
       color: "lime",
       class: {
-        root: "text-lime-600",
+        root: ["text-lime-600", "hover:text-lime-700"],
       },
     },
     {
@@ -321,7 +329,7 @@ const button = tv({
       surface: "link",
       color: "emerald",
       class: {
-        root: "text-emerald-600",
+        root: ["text-emerald-600", "hover:text-emerald-700"],
       },
     },
     {
@@ -361,7 +369,7 @@ const button = tv({
       surface: "link",
       color: "teal",
       class: {
-        root: "text-teal-600",
+        root: ["text-teal-600", "hover:text-teal-700"],
       },
     },
     {
@@ -401,7 +409,7 @@ const button = tv({
       surface: "link",
       color: "cyan",
       class: {
-        root: "text-cyan-600",
+        root: ["text-cyan-600", "hover:text-cyan-700"],
       },
     },
     {
@@ -441,7 +449,7 @@ const button = tv({
       surface: "link",
       color: "sky",
       class: {
-        root: "text-sky-600",
+        root: ["text-sky-600", "hover:text-sky-700"],
       },
     },
     {
@@ -481,7 +489,7 @@ const button = tv({
       surface: "link",
       color: "blue",
       class: {
-        root: "text-blue-600",
+        root: ["text-blue-600", "hover:text-blue-700"],
       },
     },
     {
@@ -521,7 +529,7 @@ const button = tv({
       surface: "link",
       color: "indigo",
       class: {
-        root: "text-indigo-600",
+        root: ["text-indigo-600", "hover:text-indigo-700"],
       },
     },
     {
@@ -561,7 +569,7 @@ const button = tv({
       surface: "link",
       color: "violet",
       class: {
-        root: "text-violet-600",
+        root: ["text-violet-600", "hover:text-violet-700"],
       },
     },
     {
@@ -601,7 +609,7 @@ const button = tv({
       surface: "link",
       color: "purple",
       class: {
-        root: "text-purple-600",
+        root: ["text-purple-600", "hover:text-purple-700"],
       },
     },
     {
@@ -641,7 +649,7 @@ const button = tv({
       surface: "link",
       color: "fuchsia",
       class: {
-        root: "text-fuchsia-600",
+        root: ["text-fuchsia-600", "hover:text-fuchsia-700"],
       },
     },
     {
@@ -681,7 +689,7 @@ const button = tv({
       surface: "link",
       color: "pink",
       class: {
-        root: "text-pink-600",
+        root: ["text-pink-600", "hover:text-pink-700"],
       },
     },
     {
@@ -721,7 +729,7 @@ const button = tv({
       surface: "link",
       color: "rose",
       class: {
-        root: "text-rose-600",
+        root: ["text-rose-600", "hover:text-rose-700"],
       },
     },
     {
@@ -761,7 +769,7 @@ const button = tv({
       surface: "link",
       color: "yellow",
       class: {
-        root: "text-yellow-600",
+        root: ["text-yellow-600", "hover:text-yellow-700"],
       },
     },
     {
@@ -801,7 +809,7 @@ const button = tv({
       surface: "link",
       color: "green",
       class: {
-        root: "text-green-600",
+        root: ["text-green-600", "hover:text-green-700"],
       },
     },
     {
@@ -841,7 +849,7 @@ const button = tv({
       surface: "link",
       color: "positive",
       class: {
-        root: "text-green-600",
+        root: ["text-green-600", "hover:text-green-700"],
       },
     },
     {
@@ -881,7 +889,7 @@ const button = tv({
       surface: "link",
       color: "negative",
       class: {
-        root: "text-red-600",
+        root: ["text-red-600", "hover:text-red-700"],
       },
     },
     {
@@ -921,7 +929,7 @@ const button = tv({
       surface: "link",
       color: "warning",
       class: {
-        root: "text-amber-600",
+        root: ["text-amber-600", "hover:text-amber-700"],
       },
     },
   ],
