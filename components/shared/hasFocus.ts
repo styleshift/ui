@@ -3,5 +3,5 @@ export default [
   "focus:ring-offset-[2px]",
   "focus:border-transparent",
   "focus:outline-none",
-  "focus:ring-neutral-400",
+  "focus:ring-current",
 ];

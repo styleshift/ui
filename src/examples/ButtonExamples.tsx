@@ -63,28 +63,18 @@ const { root } = button()
                     <code className="text-xs">{`import { button } from "@/components/ui/button"
 
 const { root } = button()
-
-// Default
 <button className={root()}>
   Default
 </button>
-
-// Outlined
-<button className={root({ surface: "outline" })}>
-  Outlined
-</button>
-
-// Secondary
 <button className={root({ surface: "secondary" })}>
   Secondary
 </button>
-
-// Ghost
+<button className={root({ surface: "outline" })}>
+  Outline
+</button>
 <button className={root({ surface: "ghost" })}>
   Ghost
 </button>
-
-// Link
 <button className={root({ surface: "link" })}>
   Link
 </button>`}</code>
@@ -96,16 +86,16 @@ const { root } = button()
                       Default
                     </button>
                     <button
-                      title="Outlined"
-                      className={root({ surface: "outline" })}
-                    >
-                      Outlined
-                    </button>
-                    <button
                       title="Secondary"
                       className={root({ surface: "secondary" })}
                     >
                       Secondary
+                    </button>
+                    <button
+                      title="Outline"
+                      className={root({ surface: "outline" })}
+                    >
+                      Outline
                     </button>
                     <button
                       title="Ghost"
@@ -143,24 +133,36 @@ const { root } = button()
                   <pre className="p-4 rounded-lg bg-zinc-950 text-zinc-50 overflow-x-auto">
                     <code className="text-xs">{`import { button } from "@/components/ui/button"
 
-const { root } = button()
+const { root } = button();
 
-<button className={root({ size: "sm" })}>Small</button>
+<button className={root({ size: "xs" })}>xs</button>
+<button className={root({ size: "sm" })}>sm</button>
 <button className={root({ size: "default" })}>Default</button>
-<button className={root({ size: "lg" })}>Large</button>`}</code>
+<button className={root({ size: "md" })}>md</button>
+<button className={root({ size: "lg" })}>lg</button>
+<button className={root({ size: "xl" })}>xl</button>`}</code>
                   </pre>
                 )}
               </div>
               <div className="p-8 bg-white/90 backdrop-blur-sm border rounded-lg">
                 <div className="flex flex-wrap items-center gap-4">
-                  <button title="Small" className={root({ size: "sm" })}>
-                    Small
-                  </button>
                   <button title="Default" className={root({ size: "default" })}>
                     Default
                   </button>
+                  <button title="Extra Small" className={root({ size: "xs" })}>
+                    XS
+                  </button>
+                  <button title="Small" className={root({ size: "sm" })}>
+                    SM
+                  </button>
+                  <button title="Medium" className={root({ size: "md" })}>
+                    MD
+                  </button>
                   <button title="Large" className={root({ size: "lg" })}>
-                    Large
+                    LG
+                  </button>
+                  <button title="Extra Large" className={root({ size: "xl" })}>
+                    XL
                   </button>
                 </div>
               </div>
@@ -202,7 +204,7 @@ const { root } = button()
                   Disabled
                 </button>
                 <button
-                  title="Disabled Outlined"
+                  title="Disabled Outline"
                   className={root({ surface: "outline" })}
                   disabled
                 >
