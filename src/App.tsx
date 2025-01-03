@@ -1,9 +1,10 @@
-import ButtonExamples from "./examples/ButtonExamples.tsx";
+import button from "../../ui/components/button";
 
 function App() {
+  const { root } = button();
   return (
     <div className="min-h-screen bg-background">
-      <ButtonExamples />
+      <button className={root()}>Click me</button>
     </div>
   );
 }

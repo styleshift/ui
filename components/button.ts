@@ -12,7 +12,7 @@ const button = tv({
       "overflow-hidden",
       "inline-flex",
       "z-0",
-      "rounded-md",
+      "rounded",
       "whitespace-nowrap",
       "font-medium",
       "items-center",
@@ -899,10 +899,10 @@ const button = tv({
       color: "neutral",
       class: {
         root: [
-          "bg-neutral-600",
+          "bg-neutral-800",
           "text-white",
-          "hover:bg-neutral-600/90",
-          "focus:ring-neutral-600",
+          "hover:bg-neutral-800/90",
+          "focus:ring-neutral-800",
         ],
       },
     },
