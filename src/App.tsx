@@ -1,16 +1,10 @@
-import { Plus } from "lucide-react";
-import button from "../../ui/components/button";
+import button from "../components/button";
 
 function App() {
-  const { root, end } = button();
+  const { root } = button();
   return (
     <div className="p-6 min-h-screen bg-background">
-      <button className={root()}>
-        Add
-        <span className={end()}>
-          <Plus />
-        </span>
-      </button>
+      <button className={root()}>Click Me!</button>
     </div>
   );
 }
