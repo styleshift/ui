@@ -20,18 +20,20 @@ const button = tv({
       "cursor-pointer",
       "active:opacity-90",
       "tap-highlight-transparent",
-      "border",
+      "border-2",
       "border-transparent",
       "bg-transparent",
       "group",
       "gap-1",
       "font-semibold",
+      "h-8",
+      "px-3",
+      "text-base",
+      "gap-x-1",
     ],
-    start: "inline-flex items-center -ml-1",
-    end: "inline-flex items-center -mr-1",
   },
   defaultVariants: {
-    surface: "default",
+    surface: "solid",
     color: "neutral",
     size: "default",
     fullWidth: false,
@@ -40,7 +42,7 @@ const button = tv({
   },
   variants: {
     surface: {
-      default: {
+      solid: {
         root: [
           "bg-neutral-800",
           "text-neutral-50",
@@ -58,7 +60,7 @@ const button = tv({
           "hover:bg-neutral-100",
         ],
       },
-      secondary: {
+      soft: {
         root: [
           "bg-neutral-200",
           "text-neutral-600",
@@ -108,26 +110,6 @@ const button = tv({
       zinc: [],
       stone: [],
     },
-    size: {
-      xs: {
-        root: "h-6 px-1.5 text-xs",
-      },
-      sm: {
-        root: "h-7 px-2 text-sm",
-      },
-      default: {
-        root: "h-8 px-3  text-base",
-      },
-      md: {
-        root: "h-9 px-4 text-md",
-      },
-      lg: {
-        root: "h-10 px-6 text-lg",
-      },
-      xl: {
-        root: "h-12 px-8 text-xl",
-      },
-    },
     fullWidth: {
       true: {
         root: ["w-full"],
@@ -137,7 +119,7 @@ const button = tv({
   },
   compoundVariants: [
     {
-      surface: "default",
+      surface: "solid",
       color: "red",
       class: {
         root: [
@@ -156,7 +138,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "red",
       class: {
         root: ["bg-red-100", "text-red-700", "hover:bg-red-100/80"],
@@ -177,7 +159,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "orange",
       class: {
         root: [
@@ -196,7 +178,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "orange",
       class: {
         root: ["bg-orange-100", "text-orange-700", "hover:bg-orange-100/80"],
@@ -217,7 +199,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "amber",
       class: {
         root: [
@@ -236,7 +218,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "amber",
       class: {
         root: ["bg-amber-100", "text-amber-700", "hover:bg-amber-100/80"],
@@ -257,7 +239,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "lime",
       class: {
         root: [
@@ -276,7 +258,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "lime",
       class: {
         root: ["bg-lime-100", "text-lime-700", "hover:bg-lime-100/80"],
@@ -297,7 +279,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "emerald",
       class: {
         root: [
@@ -316,7 +298,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "emerald",
       class: {
         root: ["bg-emerald-100", "text-emerald-700", "hover:bg-emerald-100/80"],
@@ -337,7 +319,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "teal",
       class: {
         root: [
@@ -356,7 +338,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "teal",
       class: {
         root: ["bg-teal-100", "text-teal-700", "hover:bg-teal-100/80"],
@@ -377,7 +359,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "cyan",
       class: {
         root: [
@@ -396,7 +378,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "cyan",
       class: {
         root: ["bg-cyan-100", "text-cyan-700", "hover:bg-cyan-100/80"],
@@ -417,7 +399,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "sky",
       class: {
         root: [
@@ -436,7 +418,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "sky",
       class: {
         root: ["bg-sky-100", "text-sky-700", "hover:bg-sky-100/80"],
@@ -457,7 +439,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "blue",
       class: {
         root: [
@@ -476,7 +458,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "blue",
       class: {
         root: ["bg-blue-100", "text-blue-700", "hover:bg-blue-100/80"],
@@ -497,7 +479,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "indigo",
       class: {
         root: [
@@ -516,7 +498,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "indigo",
       class: {
         root: ["bg-indigo-100", "text-indigo-700", "hover:bg-indigo-100/80"],
@@ -537,7 +519,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "violet",
       class: {
         root: [
@@ -556,7 +538,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "violet",
       class: {
         root: ["bg-violet-100", "text-violet-700", "hover:bg-violet-100/80"],
@@ -577,7 +559,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "purple",
       class: {
         root: [
@@ -596,7 +578,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "purple",
       class: {
         root: ["bg-purple-100", "text-purple-700", "hover:bg-purple-100/80"],
@@ -617,7 +599,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "fuchsia",
       class: {
         root: [
@@ -636,7 +618,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "fuchsia",
       class: {
         root: ["bg-fuchsia-100", "text-fuchsia-700", "hover:bg-fuchsia-100/80"],
@@ -657,7 +639,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "pink",
       class: {
         root: [
@@ -676,7 +658,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "pink",
       class: {
         root: ["bg-pink-100", "text-pink-700", "hover:bg-pink-100/80"],
@@ -697,7 +679,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "rose",
       class: {
         root: [
@@ -716,7 +698,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "rose",
       class: {
         root: ["bg-rose-100", "text-rose-700", "hover:bg-rose-100/80"],
@@ -737,7 +719,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "yellow",
       class: {
         root: [
@@ -756,7 +738,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "yellow",
       class: {
         root: ["bg-yellow-100", "text-yellow-700", "hover:bg-yellow-100/80"],
@@ -777,7 +759,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "green",
       class: {
         root: [
@@ -796,7 +778,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "green",
       class: {
         root: ["bg-green-100", "text-green-700", "hover:bg-green-100/80"],
@@ -817,7 +799,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "slate",
       class: {
         root: [
@@ -836,7 +818,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "slate",
       class: {
         root: ["bg-slate-100", "text-slate-700", "hover:bg-slate-100/80"],
@@ -857,7 +839,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "gray",
       class: {
         root: [
@@ -876,7 +858,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "gray",
       class: {
         root: ["bg-gray-100", "text-gray-700", "hover:bg-gray-100/80"],
@@ -897,7 +879,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "neutral",
       class: {
         root: [
@@ -916,7 +898,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "neutral",
       class: {
         root: ["bg-neutral-100", "text-neutral-700", "hover:bg-neutral-100/80"],
@@ -937,7 +919,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "zinc",
       class: {
         root: [
@@ -956,7 +938,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "zinc",
       class: {
         root: ["bg-zinc-100", "text-zinc-700", "hover:bg-zinc-100/80"],
@@ -977,7 +959,7 @@ const button = tv({
       },
     },
     {
-      surface: "default",
+      surface: "solid",
       color: "stone",
       class: {
         root: [
@@ -996,7 +978,7 @@ const button = tv({
       },
     },
     {
-      surface: "secondary",
+      surface: "soft",
       color: "stone",
       class: {
         root: ["bg-stone-100", "text-stone-700", "hover:bg-stone-100/80"],
