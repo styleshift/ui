@@ -114,7 +114,9 @@ const button = tv({
       true: {
         root: ["w-full"],
       },
-      false: [],
+      false: {
+        root: ["w-fit"],
+      },
     },
   },
   compoundVariants: [
