@@ -1,10 +1,14 @@
 import button from "../components/button";
+import { Plus } from "lucide-react";
 
 function App() {
-  const { root } = button({ color: "indigo", surface: "outline" });
+  const { root, end } = button({ color: "indigo", surface: "outline" });
   return (
     <div className="p-6 min-h-screen bg-background">
-      <button className={root()}>Click Me!</button>
+      <button className={root()}>
+        Add
+        <Plus className={end()} />
+      </button>
     </div>
   );
 }

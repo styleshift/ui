@@ -25,10 +25,10 @@ const button = tv({
       "bg-transparent",
       "group",
       "gap-1",
-      "font-medium",
+      "font-semibold",
     ],
-    start: "inline-flex items-center -ml-1 [&>svg]:size-5",
-    end: "inline-flex items-center -mr-1 [&>svg]:size-5",
+    start: "inline-flex items-center -ml-1",
+    end: "inline-flex items-center -mr-1",
   },
   defaultVariants: {
     surface: "default",
