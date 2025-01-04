@@ -24,9 +24,11 @@ const button = tv({
       "border-transparent",
       "bg-transparent",
       "group",
+      "gap-1",
+      "font-medium",
     ],
-    start: "inline-flex items-center -ml-1",
-    end: "inline-flex items-center -mr-1",
+    start: "inline-flex items-center -ml-1 [&>svg]:size-5",
+    end: "inline-flex items-center -mr-1 [&>svg]:size-5",
   },
   defaultVariants: {
     surface: "default",
@@ -108,22 +110,22 @@ const button = tv({
     },
     size: {
       xs: {
-        root: "h-6 px-2 text-xs",
+        root: "h-6 px-1.5 text-xs",
       },
       sm: {
-        root: "h-7 px-3 text-sm",
+        root: "h-7 px-2 text-sm",
       },
       default: {
-        root: "h-8 px-4 text-base",
+        root: "h-8 px-3  text-base",
       },
       md: {
-        root: "h-9 px-6 text-md",
+        root: "h-9 px-4 text-md",
       },
       lg: {
-        root: "h-10 px-8 text-lg",
+        root: "h-10 px-6 text-lg",
       },
       xl: {
-        root: "h-12 px-10 text-xl",
+        root: "h-12 px-8 text-xl",
       },
     },
     fullWidth: {
